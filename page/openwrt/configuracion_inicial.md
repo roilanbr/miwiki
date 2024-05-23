@@ -13,7 +13,7 @@ En la interfaz LAN clickamos en:
     * Y Marcar `Ignore interface`
     * Save
 
-Aplicamos la la configuración, mas abajo donde dice: $\color{#50fa7b}\textsf {Save \& Apply}$
+Aplicamos la la configuración, mas abajo donde dice: $\color{#50fa7b}\textsf {Save and Apply}$
 
 
 # Configurar la interfaz WAN
@@ -29,7 +29,7 @@ Editamos la interfaz WAN en `Network >> Interfaces` damos click en `Edit` en la 
   - Use custom DNS servers: `ip_dns`
   - Terminamos presionando el botón: `Save`
 
-Aplicar la la configuración con el botón: $\color{#50fa7b}\textsf {Save \& Apply}$
+Aplicar la la configuración con el botón: $\color{#50fa7b}\textsf {Save and Apply}$
 
 
 # Configurar Proxy
