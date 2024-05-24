@@ -12,7 +12,7 @@ No soy un experto en la informática, mi conocimiento es horas nalga. Esta wiki 
 
 * [OpenWRT](./page/openwrt.md)
     - [Instalación en Promox](./page/openwrt/instalacion_en_promox.md)
-* [tuto1](./page/)
+* [Correo](./page/correo.md)
 * [tuto2](./page/)
 * [tuto3](./page/)
 
