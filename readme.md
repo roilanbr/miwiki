@@ -10,11 +10,25 @@ No soy un experto en la informática, mi conocimiento es horas nalga. Esta wiki 
 
 # Índice
 
-* [OpenWRT](./page/openwrt.md)
-    - [Instalación en Promox](./page/openwrt/instalacion_en_promox.md)
-* [Correo](./page/correo.md)
-* [tuto2](./page/)
+* [Servidor de Correo](./page/servidor_de_correo.md)
+  - [Instalar iRedMail](./page/servidor_de_correo/instalar_iredmail.md) - Script para instalar servidor de correo
+<hr>
+
+* [Ruter](./page/ruter.md)
+    - [Configuracion inicial](./page/ruter/configuracion_inicial.md)
+    - [OpenWrt en Promox](./page/ruter/openwrt_en_promox.md)
+<hr>
+
+* [Proxmox VE](./page/proxmox.md)
+  - [`EDICION` Instalación de Proxmox VE](./page/proxmox_ve/instalacion_promox_ve.md)
+  - [`EDICION` Eliminar partición local-LVM](./page/proxmox_ve/eliminar_particion_local-lvm.md)
+  - [Comandos básicos](./page/proxmox_ve/comandos_basicos.md)
+  - [`EDICION`  API de Proxmox](./page/proxmox_ve/api_de_proxmox.md)
+<hr>
+
 * [tuto3](./page/)
+<hr>
+
 
 
 # Notas
