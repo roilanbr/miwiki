@@ -43,35 +43,32 @@ Writing superblocks and filesystem accounting information: done
 
 Modificar el archivo `fstab` y agregar al final los parámetros para que se monte el volumen al iniciar el sistema:
 
-Archivo: `/etc/fstab`
-> Archivo: `/etc/fstab`
-
 ```bash
-[...]
-/dev/pve/data /media/hdd ext4 rw 0 2
+$ echo "/dev/pve/data /media/hdd ext4 rw 0 2" >> /etc/fstab
 ```
 
 Crear carpeta de montaje y probar a montar:
 
 ```bash
-root@pve:~# mkdir /media/hdd
-root@pve:~# mount -a
+$ mkdir /media/hdd
+$ mount -a
 ```
 
 Comprobar que se a montado:
 
 ```bash
-root@pve:~# df -lh
+$ df -lh
 Filesystem             Size      Used  Avail Use% Mounted on
+
 [...]
-/dev/mapper/pve-data   250.24G   24M   250G   1% /media/hdd
+/dev/mapper/pve-data    68G       24K    65G   1% /media/hdd
 ```
 
 Eliminar partición `local-lvm` que aparece en la interfaz web del proxmox y agregar el nuevo volumen creado, puede ser por la web o por consola:
 
-```bash
-root@pve:~# nano /etc/pve/storage.cfg
+Archivo: `/etc/pve/storage.cfg`
 
+```bash
 dir: local
         path /var/lib/vz
         content iso,vztmpl,backup
@@ -81,11 +78,11 @@ dir: local
 #        vgname pve
 #        content rootdir,images 
  
-dir: salva
-        path /media/salva
-        content images,snippets,iso,backup,rootdir,vztmpl
+dir: hdd
+        path /media/hdd
+        content backup,images,iso,rootdir,snippets,vztmpl
         maxfiles 4
         shared 0
 ```
         
-$\color{#50fa7b}{\textsf{Final}}$
+$\color{#50fa7b}{\textsf{FIN}}$

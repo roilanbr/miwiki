@@ -35,10 +35,6 @@
 >* Tamaño de la imagen fija: `<img src="./media/proxmox.svg" alt="promox logo" width="500" />`
 >* Tamaño de la imagen relativa: `<img src="./media/proxmox.svg" alt="promox logo" style="width: 25%;" />`
 
-> [!TIP]
-> Color entre comillas \`\` `#ef4444`
-
-
 > [!NOTE]
 > Useful information that users should know, even when skimming content.
 

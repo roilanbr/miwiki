@@ -27,16 +27,17 @@ $ ls /etc/pve/nodes/pve/lxc/
 104.conf  105.conf  106.conf
 ```
 
-Los discos de las VM y LXC respectivamente están en `/var/lib/vz/images/xxx/vm-xxx-disk-0.qcow2`:
+Los discos de las VM y LXC están en `/var/lib/vz/images/xxx/`:
 
 ```bash
 $ ls -F /var/lib/vz/images/101/
 vm-101-disk-0.qcow2
 ```
 
+
 # Comandos básicos Proxmox
 
-**Comando qm para VM**
+Comando qm para VM
 
 * `qm list`            - listar
 * `qm destroy <vmid>`  - eliminar
@@ -48,7 +49,7 @@ vm-101-disk-0.qcow2
 * `qm config <vmid>`   - ver configuración de la VM
 * `qm sendkey <vmid> <key>` - enviar pulsación de tecla
 
-> Nota:
+> [!NOTE]
 > Para mas comando ejecute `qm` sin parametros
 
 **Comando pct para LXC**
@@ -64,7 +65,9 @@ vm-101-disk-0.qcow2
 * `pct resize <vmid> <disk> <size>` - Incrementa el disco virtual
 * `pct config <vmid>`   - Ver configuración
 
-Para mas comando ejecute `pct` sin parametros
+> [!NOTE]
+> Para mas comando ejecute `pct` sin parametros
+
 
 # Gestionar las salvas
 
@@ -81,9 +84,7 @@ Para mas comando ejecute `pct` sin parametros
 * `--remove <numero>`              - Eliminar las salva más antiguas predeterminado = 1
 * `--storage <almacen>`            - Nombre del almacenamiento donde salvar
 
-**Restaurar salvas de VM y LXC**
-
-Debemos de apagar la VM o LXC
+Restaurar salvas de VM y LXC, antes de debe apagar la VM o LXC
 
 Para VM: `qmrestore <archive> <vmid> [OPTIONS]`
 

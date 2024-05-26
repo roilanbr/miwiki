@@ -2,7 +2,8 @@
 
 <img src="../../media/servidor_de_correo/iredmail.png" alt="iredmail logo" width="100" />
 
-`iRedMail` es una solución de código abierto que te permite configurar y gestionar un servidor de correo electrónico completo. Es una herramienta muy útil si estás buscando una forma de configurar tu propio servidor de correo electrónico de manera sencilla y eficiente.
+> [!INFO]
+> iRedMail` es una solución de código abierto que te permite configurar y gestionar un servidor de correo electrónico completo. Es una herramienta muy útil si estás buscando una forma de configurar tu propio servidor de correo electrónico de manera sencilla y eficiente.
 
 
 # Instalación en Debian 12
@@ -27,7 +28,7 @@ Introduzca el comando hostname -f para ver el nombre de host actual:
 
 ```bash
 $ hostname -f
-mx.example.com
+mx.tudominio.cu
 ```
 
 
@@ -35,6 +36,7 @@ mx.example.com
 
 ```bash
 $ apt update && apt upgrade
+
 $ apt install -y gzip dialog
 ```
 
@@ -46,7 +48,6 @@ Visite la web [https://iredmail.org/download.html](https://iredmail.org/download
 ```bash
 $ wget -cv https://github.com/iredmail/iRedMail/archive/refs/tags/1.6.8.tar.gz
 
-$ cd /root/
 $ tar zxf 1.6.8.tar.gz
 ```
 
@@ -56,35 +57,36 @@ Ahora está listo para iniciar el instalador de iRedMail, le pedirá varias preg
 
 ```bash
 $ cd iRedMail-1.6.8
-bash iRedMail.sh
+
+$ bash iRedMail.sh
 ```
 
 ## Capturas de pantalla de instalación:
 
-* Bienvenido y gracias por su uso.
+Bienvenido y gracias por su uso.
 
 <img src="../../media/servidor_de_correo/iredmail-welcome.png" alt="Bienvenido" style="width: 600;" />
 
-* Especifique la ubicación para almacenar todos los buzones. El valor predeterminado es /var/vmail/.
+Especifique la ubicación para almacenar todos los buzones. El valor predeterminado es /var/vmail/.
 
 <img src="../../media/servidor_de_correo/iredmail-mail_storage.png" alt="buzones" style="width: 600;" />
 
-* Elija el backend utilizado para almacenar cuentas de correo, en este caso `MySQL`.
+Elija el backend utilizado para almacenar cuentas de correo, en este caso `MySQL`.
 
 <img src="../../media/servidor_de_correo/iredmail-backends.png" alt="backend utilizado" style="width: 600;" />
 
-* Añade tu primer nombre de dominio de correo (tudominio.cu)
+Añade tu primer nombre de dominio de correo (tudominio.cu)
 
 <img src="../../media/servidor_de_correo/iredmail-first_domain.png" alt="dominio de correo" style="width: 600;" />
 
-* Establezca la contraseña de la cuenta de administrador de su primer dominio de correo.
+Establezca la contraseña de la cuenta de administrador de su primer dominio de correo.
 
-> Nota:\
+> [!NOTE]
 > Esta cuenta es una cuenta de administrador y un usuario de correo. Eso significa que puedes inicie sesión en el correo web y el panel de administración (iRedAdmin) con esta cuenta, inicie sesión como nombre de usuario es la dirección de correo electrónico completa. 
 
 <img src="../../media/servidor_de_correo/iredmail-admin_pw.png" alt="contraseña de la cuenta" style="width: 600;" />
 
-* Elija componentes opcionales (iRedAdmin, Roundcubemail)
+Elija componentes opcionales (iRedAdmin, Roundcubemail)
 
 <img src="../../media/servidor_de_correo/iredmail-optional_components.png" alt="componentes opcionales" style="width: 600;" />
 
@@ -95,7 +97,7 @@ Después de responder las preguntas anteriores, el instalador de iRedMail le ped
 
 # Cosas importantes que debe saber después de la instalación
 
-Lea el archivo `iRedMail-1.6.8/iRedMail.tips` contiene:
+Lea el archivo `iRedMail.tips` contiene:
 
 * URL, nombres de usuario y contraseñas de aplicaciones basadas en web
 * Ubicación de los archivos de configuración de software relacionados con el servicio de correo.
@@ -136,7 +138,7 @@ relayhost = relay.midominio.com:26
 ```
 ## Copia de los correos entrante y saliente
 
-Antes debemos crear la cuenta `copy` por `https://your_server/iredadmin`
+Antes debemos crear la cuenta `copy` por la web `https://your_server/iredadmin`
 
 Archivo: `/etc/postfix/main.cf`
 
@@ -155,14 +157,14 @@ recipient_bcc_maps =
 **Reiniciamos**
 
 ```bash
-systemctl restart postfix
+$ systemctl restart postfix
 ```
 
 Creamos el archivo `bcc_mail` y lo mapeamos
 
 ```bash
 $ echo "@tudominio.cu copy@tudominio.cu" > bcc_mail
-$ postmap bcc_mail
+$ postmap /etc/postfix/bcc_mail
 ```
 
 # Rotación de los log
