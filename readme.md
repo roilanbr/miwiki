@@ -1,6 +1,5 @@
-# $\color{#0ea5e9}{\textsf{Aviso}}$
-
-No soy un experto en la informática, mi conocimiento es horas nalga. Esta wiki es para documentar todos los tutoriales que he seguido a lo largo de los años como administrador de red novato hasta ahora. No hagan caso de la falta de ortografía soy malo y vago para revisar.
+> [!IMPORTANT]
+> No soy un experto en la informática, mi conocimiento es horas nalga. Esta wiki es para documentar todos los tutoriales que he seguido a lo largo de los años como administrador de red novato hasta ahora. No hagan caso de la falta de ortografía soy malo y vago para revisar.
 
 
 # Diferentes tutoriales sobre GNU/Linux
@@ -31,10 +30,14 @@ No soy un experto en la informática, mi conocimiento es horas nalga. Esta wiki 
 
 
 
-> [!NOTE]
-* Insertar imagen: `![promox logo](./media/proxmox.svg)`
-* Tamaño de la imagen fija: `<img src="./media/proxmox.svg" alt="promox logo" width="500" />`
-* Tamaño de la imagen relativa: `<img src="./media/proxmox.svg" alt="promox logo" style="width: 25%;" />`
+> [!TIP]
+> * Insertar imagen: `![promox logo](./media/proxmox.svg)`
+>* Tamaño de la imagen fija: `<img src="./media/proxmox.svg" alt="promox logo" width="500" />`
+>* Tamaño de la imagen relativa: `<img src="./media/proxmox.svg" alt="promox logo" style="width: 25%;" />`
+
+> [!TIP]
+> Color entre comillas \`\` `#ef4444`
+
 
 > [!NOTE]
 > Useful information that users should know, even when skimming content.
