@@ -31,9 +31,24 @@ No soy un experto en la informática, mi conocimiento es horas nalga. Esta wiki 
 
 
 
-# Notas
+> [!NOTE]
 * Insertar imagen: `![promox logo](./media/proxmox.svg)`
 * Tamaño de la imagen fija: `<img src="./media/proxmox.svg" alt="promox logo" width="500" />`
 * Tamaño de la imagen relativa: `<img src="./media/proxmox.svg" alt="promox logo" style="width: 25%;" />`
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
 
 

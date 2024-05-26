@@ -1,11 +1,11 @@
 # Eliminar partición local-LVM
 
-Al instalar Proxmox 6.x se crea 2 particiones por defecto llamadas `local` y `local-lvm` en esta ultima solo se guardan los discos de las VM por lo que eliminaremos esa partición y la crearemos para poder almacenar las iso, backup, plantillas, etc.
+Al instalar Proxmox se crea 2 particiones por defecto llamadas `local` y `local-lvm` en esta ultima solo se guardan los discos de las VM por lo que eliminaremos esa partición y la crearemos para poder almacenar las iso, backup, plantillas, etc.
 
 Lo primero es eliminar la partición `lvm-thin` que es la que nos interesa para ello desde la consola ejecutaremos los siguientes comandos: 
 
 ```bash
-root@pve:~# lvremove /dev/pve/data
+$ lvremove /dev/pve/data
 Do you really want to remove and DISCARD active logical volumen pve/data? [y/n]: y
   Logical volume "data" successfully removed
 ```
@@ -13,18 +13,18 @@ Do you really want to remove and DISCARD active logical volumen pve/data? [y/n]:
 Verificar el espacio libre con `vgdisplay` y fijarnos en el espacio libre en `Free PE / Size`: 
 
 ```bash 
-root@pve:~# vgdisplay
+$ vgdisplay
  --- Volume group ---
  [...]
- Alloc PE / Size       3392 / 13.25 GiB
- Free  PE / Size       9279 / <250.25 GiB
+ Alloc PE / Size       7680 / 30.00 GiB
+ Free  PE / Size       17791 / <69.50 GiB
  VG UUID               4Wpf9c-oAXk-OGmD-ndsZ-BTbg-npwB-F45oTl
  ```
 
-Crear el nuevo volumen con un tamaño un poco mas pequeño (250.24G): 
+Crear el nuevo volumen con un tamaño un poco mas pequeño (69.49G): 
 
 ```bash
-root@pve:~# lvcreate -L 250.24G -n data pve
+$ lvcreate -L 69.49G -n data pve
 Rounding up size to full physical extent 250.24 GiB
 Logical volume "data" created.
 ```
@@ -32,14 +32,21 @@ Logical volume "data" created.
 Formatear el nuevo volumen:
 
 ```bash
-root@pve:~# mkfs.ext4 /dev/pve/data
+$ mkfs.ext4 /dev/pve/data
+[...]
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (131072 blocks): done
+Writing superblocks and filesystem accounting information: done
 ```
 
 Modificar el archivo `fstab` y agregar al final los parámetros para que se monte el volumen al iniciar el sistema:
 
-```bash
-root@pve:~# nano /etc/fstab
+Archivo: `/etc/fstab`
+> Archivo: `/etc/fstab`
 
+```bash
 [...]
 /dev/pve/data /media/hdd ext4 rw 0 2
 ```
