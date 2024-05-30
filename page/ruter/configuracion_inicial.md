@@ -2,18 +2,19 @@
 
 En un navegador abrimos la URL de la administración web, por defecto [http://192.168.1.1](http://192.168.1.1), usuario `root` sin contraseña.
 
-Una vez autenticado vamos a `System >> Administration` y configuramos la contraseña de administración.
+Una vez autenticado vamos a `System >> Administration >> Router Password` y configuramos la contraseña de administración.
 
-Si tenemos un servidor DHCP, desabilitamos el DHCP en la interfaz LAN del router para ello vamos a `Networt >> Interface`
+<img src="../../media/ruter/openwrt_passwd.png" alt="change passwd" style="width: 100%;" />
 
-En la interfaz LAN clickamos en:
+Si tenemos un servidor DHCP, desabilitamos el DHCP en la interfaz LAN del router para ello vamos a `Networt >> Interface`.
 
-* Edit
-  - DHCP Server
-    * Y Marcar `Ignore interface`
-    * Save
+En la interfaz LAN damos click en: `Edit >> DHCP Server >> General Setup`, y marcar
 
-Aplicamos la la configuración, mas abajo donde dice: $\color{#50fa7b}\textsf {Save and Apply}$
+* [X] `Ignore interface`
+
+Aplicamos la la configuración, mas abajo donde dice: `Save` y luego en `Save & Apply`.
+
+<img src="../../media/ruter/openwrt_disable_dhcp.png" alt="disable dhcp" style="width: 100%;" /> 
 
 
 # Configurar la interfaz WAN
@@ -23,52 +24,41 @@ Editamos la interfaz WAN en `Network >> Interfaces` damos click en `Edit` en la 
 * General Settings
   - Protocol: `Static address`
   - Presionamos el botón: `Switch protocol`
-  - IPv4 address: `ip_wan_router`
-  - IPv4 gateway: `ip_gateway_router`
+  - IPv4 address: `tu_ip_wan_router`
+  - IPv4 gateway: `tu_ip_gateway_router`
   - IPv4 broadcast: `255.255.255.0`
   - Use custom DNS servers: `ip_dns`
   - Terminamos presionando el botón: `Save`
 
-Aplicar la la configuración con el botón: $\color{#50fa7b}\textsf {Save and Apply}$
+Aplicar la la configuración con el botón `Save` y luego en `Save and Apply`
+
+<img src="../../media/ruter/openwrt_network_wan.png" alt="network wan" style="width: 100%;" /> 
 
 
 # Configurar Proxy
 
-Vamos a: `Syistem >> Software` click en el botón `Configure opkg...` y en el cuadro de texto `opkg.conf` agregamos al final la configuracion del proxy.
+Vamos a: `Syistem >> Software` click en el botón `Configure opkg...` y en el cuadro de texto `/etc/opkg.conf` agregamos al final la configuracion del proxy.
 
 ```bash
 option ftp_proxy http://ip_proxy:port
 option http_proxy http://ip_proxy:port
+option https_proxy http://ip_proxy:port
 ```
+
+Aplicar la la configuración con el botón `Save`
+
+<img src="../../media/ruter/openwrt_proxy.png" alt="Proxy" style="width: 100%;" /> 
 
 
 # Actualizar el repositorio e instalar software
 
-**Por la web**
+Vamos a `System >> Software` click en el botón `Update list...` para actualizar los repositorios. 
 
-Vamos a `System >> Software` click en el botón `Update list...`. Para instalar un software clickamos en el botón `Install` al lado del nombre del software.
-
-**Por consola**
-
-```bash
-OpenWRT:~# opkg update
-[...]
-Signature check passed.
-
-OpenWRT:~# opkg install `<software>`
-```
+Para instalar un software clickamos en el botón `Install` al lado del nombre del software.
 
 
 # Instalar el idioma español a la interfaz web
 
-**Por la web**
-
 Vamos a `Syistem / Software` en la caja de texto `filte` escribimos `luci-i18n-base-es`, una ves filtrado damos en el botón `Install`.
-
-**Por la consola ejecutamos**
-
-```bash
-OpenWRT:~# opkg install luci-i18n-base-es
-```
 
 Luego por la web vamos a `System >> Language and Style` y seleccionamos en `Language: Español (Spanish)`.

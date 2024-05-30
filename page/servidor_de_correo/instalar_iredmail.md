@@ -2,8 +2,8 @@
 
 <img src="../../media/servidor_de_correo/iredmail.png" alt="iredmail logo" width="100" />
 
-> [!INFO]
-> iRedMail` es una solución de código abierto que te permite configurar y gestionar un servidor de correo electrónico completo. Es una herramienta muy útil si estás buscando una forma de configurar tu propio servidor de correo electrónico de manera sencilla y eficiente.
+>[!INFO]
+>iRedMail es una solución de código abierto que te permite configurar y gestionar un servidor de correo electrónico completo. Es una herramienta muy útil si estás buscando una forma de configurar tu propio servidor de correo electrónico de manera sencilla y eficiente.
 
 
 # Instalación en Debian 12
@@ -81,8 +81,8 @@ Añade tu primer nombre de dominio de correo (tudominio.cu)
 
 Establezca la contraseña de la cuenta de administrador de su primer dominio de correo.
 
-> [!NOTE]
-> Esta cuenta es una cuenta de administrador y un usuario de correo. Eso significa que puedes inicie sesión en el correo web y el panel de administración (iRedAdmin) con esta cuenta, inicie sesión como nombre de usuario es la dirección de correo electrónico completa. 
+>[!NOTE]
+>Esta cuenta es una cuenta de administrador y un usuario de correo. Eso significa que puedes inicie sesión en el correo web y el panel de administración (iRedAdmin) con esta cuenta, inicie sesión como nombre de usuario es la dirección de correo electrónico completa. 
 
 <img src="../../media/servidor_de_correo/iredmail-admin_pw.png" alt="contraseña de la cuenta" style="width: 600;" />
 
